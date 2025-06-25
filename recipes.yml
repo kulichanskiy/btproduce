@@ -1,0 +1,15 @@
+recipes:
+	mace_recipe:
+		time_to_produce: 432000 # Time in ticks
+		production_cost: 0.04   # Production cost (Machine maintenance)
+		energy_consumption: 16  # kWh per hour (72000 ticks)
+		input_items: 
+			- type: minecraft:netherite_ingot
+			  amount: 6
+			- type: minecraft:blaze_rod
+			  amount: 2
+			- type: minecraft:nether_star
+			  amount: 1
+		output_items:
+			type: minecraft:mace
+			amount: 1

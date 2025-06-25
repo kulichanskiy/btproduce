@@ -1,0 +1,15 @@
+name: BuildToProduce
+version: 1.0
+main: me.buildtoproduce.BuildToProduce
+api-version: 1.21
+
+commands:
+  btproduce:
+    description: Основная команда BuildToProduce
+    usage: /btproduce <subcommand>
+
+permissions:
+  btproduce.admin:
+    description: Доступ к административным командам BuildToProduce
+    default: op
+

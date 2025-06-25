@@ -1,0 +1,10 @@
+machines:
+  light_1:
+		displayed_name: "Легкий пресс Mk1"
+		template_location: "/machine_templates/light_1.yml"
+    allowed_recipes:
+      mace_recipe:
+        time_multiplier: 1.0
+        research_level: 1
+    research_type: light_press
+    unlock_research_level: 1
