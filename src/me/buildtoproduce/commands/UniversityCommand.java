@@ -8,18 +8,18 @@ public class UniversityCommand extends SubCommand {
 
     @Override
     public String getName() {
-        return "nation";
+        return "university";
     }
 
     @Override
     public String getDescription() {
-        return "Управление странами";
+        return "Управление университетами";
     }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (args.length < 2) {
-            sender.sendMessage("§cИспользование: /btproduce nation <create/request/delete/approve> <name>");
+            sender.sendMessage("§cИспользование: /btproduce business <create/request/delete/approve> <name>");
             return;
         }
 
@@ -29,30 +29,30 @@ public class UniversityCommand extends SubCommand {
         switch (action.toLowerCase()) {
             case "create":
                 if (!sender.isOp()) {
-                    sender.sendMessage("§cТолько админ может создать страну напрямую.");
+                    sender.sendMessage("§cТолько админ может создать университет напрямую.");
                     return;
                 }
-                // TODO: create country
-                sender.sendMessage("§aСтрана '" + name + "' создана.");
+                // TODO: create uni
+                sender.sendMessage("§aУниверситет '" + name + "' создан.");
                 break;
 
             case "request":
                 // TODO: log request to DB or queue
-                sender.sendMessage("§aЗапрос на создание страны '" + name + "' отправлен.");
+                sender.sendMessage("§aЗапрос на создание университета '" + name + "' отправлен.");
                 break;
 
             case "delete":
                 // TODO: check if owner or op
-                sender.sendMessage("§cСтрана '" + name + "' удалена.");
+                sender.sendMessage("§cУниверситет '" + name + "' удален.");
                 break;
 
             case "approve":
                 if (!sender.isOp()) {
-                    sender.sendMessage("§cТолько админ может одобрить создание страны.");
+                    sender.sendMessage("§cТолько админ может одобрить создание университета.");
                     return;
                 }
                 // TODO: approve request
-                sender.sendMessage("§aСтрана '" + name + "' одобрена.");
+                sender.sendMessage("§aУниверситет '" + name + "' одобрена.");
                 break;
 
             default:

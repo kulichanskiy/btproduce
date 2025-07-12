@@ -8,18 +8,18 @@ public class BusinessCommand extends SubCommand {
 
     @Override
     public String getName() {
-        return "nation";
+        return "business";
     }
 
     @Override
     public String getDescription() {
-        return "Управление странами";
+        return "Управление бизнессом";
     }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (args.length < 2) {
-            sender.sendMessage("§cИспользование: /btproduce nation <create/request/delete/approve> <name>");
+            sender.sendMessage("§cИспользование: /btproduce business <create/request/delete/approve> <name>");
             return;
         }
 
@@ -28,31 +28,13 @@ public class BusinessCommand extends SubCommand {
 
         switch (action.toLowerCase()) {
             case "create":
-                if (!sender.isOp()) {
-                    sender.sendMessage("§cТолько админ может создать страну напрямую.");
-                    return;
-                }
-                // TODO: create country
-                sender.sendMessage("§aСтрана '" + name + "' создана.");
-                break;
-
-            case "request":
-                // TODO: log request to DB or queue
-                sender.sendMessage("§aЗапрос на создание страны '" + name + "' отправлен.");
+                // TODO: create business
+                sender.sendMessage("§aБизнесс '" + name + "' создан.");
                 break;
 
             case "delete":
                 // TODO: check if owner or op
-                sender.sendMessage("§cСтрана '" + name + "' удалена.");
-                break;
-
-            case "approve":
-                if (!sender.isOp()) {
-                    sender.sendMessage("§cТолько админ может одобрить создание страны.");
-                    return;
-                }
-                // TODO: approve request
-                sender.sendMessage("§aСтрана '" + name + "' одобрена.");
+                sender.sendMessage("§cБизнесс '" + name + "' удалена.");
                 break;
 
             default:

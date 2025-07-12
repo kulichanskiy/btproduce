@@ -43,7 +43,7 @@ public class ValidateCommand extends SubCommand {
 
         String templateId = args[0];
 
-        // Загрузка machines.yml
+        // loading machines.yml
         File machinesFile = new File("plugins/BuildToProduce/machines.yml");
         String templatePath = null;
         String displayName = templateId;
@@ -77,7 +77,7 @@ public class ValidateCommand extends SubCommand {
             return;
         }
 
-        // Проверка WorldEdit
+        // we check
         WorldEditPlugin worldEdit = (WorldEditPlugin) Bukkit.getPluginManager().getPlugin("WorldEdit");
         if (worldEdit == null) {
             player.sendMessage("§cWorldEdit не найден.");
@@ -101,7 +101,7 @@ public class ValidateCommand extends SubCommand {
         BlockVector3 min = region.getMinimumPoint();
         Location origin = new Location(player.getWorld(), min.getBlockX(), min.getBlockY(), min.getBlockZ());
 
-        // Загрузка шаблона блоков
+        // template loading
         List<Map<String, Object>> blocks;
         try (FileInputStream fis = new FileInputStream(templateFile)) {
             Yaml yaml = new Yaml(); // Без конструктора
@@ -113,7 +113,7 @@ public class ValidateCommand extends SubCommand {
             return;
         }
 
-        // Валидация
+        // validation
         int incorrect = 0;
         for (Map<String, Object> blockData : blocks) {
             List<Integer> pos = (List<Integer>) blockData.get("pos");

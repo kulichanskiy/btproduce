@@ -41,7 +41,7 @@ public class BackupManager {
             Files.copy(Paths.get(DB_PATH), backupFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             Bukkit.getLogger().info("[BuildToProduce] Бэкап создан: " + backupFile.getName());
 
-            // Удаление старых бэкапов, если больше 4
+            // old backup clean if >4
             File[] backups = dir.listFiles((d, name) -> name.endsWith(".sqlite"));
             if (backups != null && backups.length > 4) {
                 Arrays.sort(backups, Comparator.comparingLong(File::lastModified));
